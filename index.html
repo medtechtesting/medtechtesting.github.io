@@ -177,29 +177,29 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                        <form id="contactForm" action="https://script.google.com/macros/s/AKfycbw7TOY6tlSq0N2PBdft6XwonG8oK9plo-G97c6Xg-fw3GNibK3QYeJqHr-FUXGiPi1t/exec" method="GET">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <input class="form-control" id="name" name="username" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                 <label for="name">名稱</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">請輸入名稱</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
                                 <label for="email">Email</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">請輸入Email</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email格式錯誤.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <input class="form-control" id="phone" name="number" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
                                 <label for="phone">手機號碼</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">請輸入手機號碼</div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." data-sb-validations="required" style="height: 10rem"></textarea>
+                                <textarea class="form-control" id="message" name="message" type="text" placeholder="Enter your message here..." data-sb-validations="required" style="height: 10rem"></textarea>
                                 <label for="message">留言</label>
                             </div>
                             <!-- Submit success message-->
@@ -220,7 +220,7 @@
                             <!-- an error submitting the form-->
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
                         </form>
                     </div>
                 </div>

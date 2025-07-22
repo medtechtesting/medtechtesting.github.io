@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="亮權檢測顧問有限公司 - 專業醫療產品安規檢測服務" />
+    <meta name="author" content="亮權檢測顧問有限公司" />
+    <title>亮權檢測顧問有限公司</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #004d99;
+            --secondary-color: #0066cc;
+            --accent-color: #ff6b35;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* 導航欄樣式 */
+        .navbar { 
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand { 
+            color: #fff !important; 
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-link { 
+            color: #fff !important; 
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+
+        /* 語言切換按鈕 */
+        .language-toggle {
+            border: 2px solid #fff;
+            color: #fff;
+            background: transparent;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            margin-left: 1rem;
+        }
+
+        .language-toggle:hover {
+            background: #fff;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* 頁首樣式 */
+        .header { 
+            background: linear-gradient(135deg, var(--bg-light), #e3f2fd);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header h1 { 
+            color: var(--primary-color); 
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .lead {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 服務區域樣式 */
+        .services { 
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+
+        .services h2 { 
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .service-card { 
+            background: var(--bg-white);
+            border: none;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            /*background: linear-gradient(90deg, var(--primary-color), var(--accent-color));*/
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .service-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-card img {
+            max-width: 120px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .service-card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* 聯繫區域樣式 */
+        .contact { 
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-light), #e8f4fd);
+        }
+
+        .contact h2 { 
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 77, 153, 0.25);
+        }
+
+        .btn-primary { 
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 25px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover { 
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* 頁尾樣式 */
+        .footer { 
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff; 
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 0;
+            line-height: 1.8;
+        }
+
+        /* 地圖樣式 */
+        .map {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .map iframe {
+            border-radius: 15px;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                margin-bottom: 2rem;
+            }
+            
+            .language-toggle {
+                margin-left: 0.5rem;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 動畫效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* 語言切換動畫 */
+        .lang-zh, .lang-en {
+            transition: all 0.3s ease;
+        }
+
+        .lang-zh.hidden, .lang-en.hidden {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">
+                <span class="lang-zh">亮權檢測顧問有限公司</span>
+                <span class="lang-en" style="display: none;">MedTech Testing Consulting Co., Ltd.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">
+                        <span class="lang-zh">關於我們</span>
+                        <span class="lang-en" style="display: none;">About Us</span>
+                    </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">
+                        <span class="lang-zh">檢測項目</span>
+                        <span class="lang-en" style="display: none;">Testing Services</span>
+                    </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">
+                        <span class="lang-zh">聯繫我們</span>
+                        <span class="lang-en" style="display: none;">Contact Us</span>
+                    </a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light btn-sm language-toggle" type="button">
+                            <span class="lang-zh">EN</span>
+                            <span class="lang-en" style="display: none;">中文</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header text-center" id="about">
+        <div class="container">
+            <h1 class="mb-4 fade-in-up">
+                <img src="assets/img/MEDTech-whiteline.svg" alt="logo" class="img-fluid">
+            </h1>
+            <h1 class="mb-4 fade-in-up">
+                <span class="lang-zh">亮權檢測顧問有限公司</span>
+                <span class="lang-en" style="display: none;">MedTech Testing Consulting Co., Ltd.</span>
+            </h1>
+            <p class="lead fade-in-up">
+                <!-- <span class="lang-zh">專業醫療產品安規檢測服務，提供全面、高效的解決方案</span>
+                <span class="lang-en" style="display: none;">Professional medical product safety testing services, providing comprehensive and efficient solutions</span> -->
+                <span class="lang-zh">我們是一家專注於醫療產品安規檢測的公司，擁有豐富的技術和經驗，熟悉各國驗證標誌檢測項目。我們致力於提供全面、高效的檢測服務，確保醫療產品符合相關法規和標準，協助客戶滿足認證的需求。 亮權的專業團隊能夠迅速且精準地進行醫療產品安規檢測，並提供客製化的解決方案，以滿足客戶的需求。我們秉持著專業、可靠、高效的價值觀，致力於為醫療產業提供最優質的安規檢測服務。</span>
+                <span class="lang-en" style="display: none;">We are a company specializing in safety testing for medical products. With extensive technical expertise and experience, we are proficient in the testing requirements for various international certification marks. We are dedicated to providing comprehensive and efficient testing services to ensure that medical products comply with all relevant regulations and standards, assisting our clients in meeting their certification needs.
+
+                    Our professional team at Liangquan delivers rapid and precise safety testing for medical products and offers customized solutions to meet specific client requirements. Guided by our core values of professionalism, reliability, and efficiency, we are committed to providing the highest quality safety testing services to the medical industry.</span>
+            </p>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="text-center mb-4">
+                <span class="lang-zh">檢測項目</span>
+                <span class="lang-en" style="display: none;">Testing Services</span>
+            </h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="assets/img/Vector.svg" alt="家用類器材" class="img-fluid mb-3">
+                        <h4>
+                            <span class="lang-zh">家用類器材</span>
+                            <span class="lang-en" style="display: none;">Home Medical Devices</span>
+                        </h4>
+                        <p>
+                            <span class="lang-zh">血壓計、耳溫槍等</span>
+                            <span class="lang-en" style="display: none;">Blood pressure monitors, ear thermometers, etc.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="assets/img/Vector-1.svg" alt="輔助類醫材" class="img-fluid mb-3">
+                        <h4>
+                            <span class="lang-zh">輔助類醫材</span>
+                            <span class="lang-en" style="display: none;">Assistive Medical Devices</span>
+                        </h4>
+                        <p>
+                            <span class="lang-zh">手術床、手術燈等</span>
+                            <span class="lang-en" style="display: none;">Surgical tables, surgical lights, etc.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="assets/img/Vector-2.svg" alt="光療類醫材" class="img-fluid mb-3">
+                        <h4>
+                            <span class="lang-zh">光療類醫材</span>
+                            <span class="lang-en" style="display: none;">Light Therapy Devices</span>
+                        </h4>
+                        <p>
+                            <span class="lang-zh">雷射光源等</span>
+                            <span class="lang-en" style="display: none;">Laser light sources, etc.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="assets/img/Vector-3.svg" alt="心電圖類醫材" class="img-fluid mb-3">
+                        <h4>
+                            <span class="lang-zh">心電圖類醫材</span>
+                            <span class="lang-en" style="display: none;">ECG Medical Devices</span>
+                        </h4>
+                        <p>
+                            <span class="lang-zh">ECG、Holter等</span>
+                            <span class="lang-en" style="display: none;">ECG, Holter monitors, etc.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="assets/img/Vector-4.svg" alt="超音波類醫材" class="img-fluid mb-3">
+                        <h4>
+                            <span class="lang-zh">超音波類醫材</span>
+                            <span class="lang-en" style="display: none;">Ultrasound Medical Devices</span>
+                        </h4>
+                        <p>
+                            <span class="lang-zh">診斷/監控式、治療用超音波等</span>
+                            <span class="lang-en" style="display: none;">Diagnostic/monitoring and therapeutic ultrasound devices</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="assets/img/Vector-5.svg" alt="其他類醫材" class="img-fluid mb-3">
+                        <h4>
+                            <span class="lang-zh">其他類醫材</span>
+                            <span class="lang-en" style="display: none;">Other Medical Devices</span>
+                        </h4>
+                        <p>
+                            <span class="lang-zh">經皮神經電刺激器、實驗室檢測儀器等</span>
+                            <span class="lang-en" style="display: none;">Transcutaneous electrical nerve stimulators, laboratory testing instruments, etc.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="text-center mb-4">
+                <span class="lang-zh">聯繫我們</span>
+                <span class="lang-en" style="display: none;">Contact Us</span>
+            </h2>
+            <form action="https://script.google.com/macros/s/AKfycby3UjnK0FPMmdLbAKY1dg6ZZJ98fvwJ9xMzYEx0nK0CBGirT4Vz4XAeMPARsiwUdCcX/exec" method="GET">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="username" 
+                               placeholder="名稱" 
+                               data-en-placeholder="Name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" name="email" 
+                               placeholder="Email" required>
+                    </div>
+                    <div class="col-12">
+                        <input type="tel" class="form-control" name="number" 
+                               placeholder="手機號碼" 
+                               data-en-placeholder="Phone Number" required>
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control" name="message" 
+                                  placeholder="留言" 
+                                  data-en-placeholder="Message" rows="4" required></textarea>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="lang-zh">發送</span>
+                            <span class="lang-en" style="display: none;">Send</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="location services" id="location">
+        <div class="container">
+            <h2 class="text-center mb-4">
+                <span class="lang-zh">公司位置</span>
+                <span class="lang-en" style="display: none;">Location</span>
+            </h2>
+            <div class="map mt-4 fade-in-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.1182549488717!2d121.42891650000001!3d25.0300606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7ee9941ca7f%3A0x26782ffa87f0098b!2zMjQy5paw5YyX5biC5paw6I6K5Y2A5Lit5q2j6LevNjU35LmLNuiZnzk!5e0!3m2!1szh-TW!2stw!4v1709480756540!5m2!1szh-TW!2stw" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <span class="lang-zh">地址：新北市新莊區中正路657之7號9樓<br>電話：02-2901-6998<br>Email：neil@medtechtesting.com.tw<br>Copyright © 2025 亮權檢測顧問有限公司</span>
+                <span class="lang-en" style="display: none;">Address: 9F, No. 657-7, Zhongzheng Rd., Xinzhuang Dist., New Taipei City<br>Phone: 02-2901-6998<br>Email: neil@medtechtesting.com.tw<br>Copyright © 2025 MedTech Testing Consulting Co., Ltd.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 語言切換功能
+        let currentLang = 'zh';
+        
+        document.querySelector('.language-toggle').addEventListener('click', function() {
+            const zhElements = document.querySelectorAll('.lang-zh');
+            const enElements = document.querySelectorAll('.lang-en');
+            const formInputs = document.querySelectorAll('input[data-en-placeholder], textarea[data-en-placeholder]');
+            
+            if (currentLang === 'zh') {
+                // 切換到英文
+                zhElements.forEach(el => {
+                    el.style.display = 'none';
+                    el.classList.add('hidden');
+                });
+                enElements.forEach(el => {
+                    el.style.display = 'inline';
+                    el.classList.remove('hidden');
+                });
+                
+                // 更新表單佔位符
+                formInputs.forEach(input => {
+                    input.placeholder = input.getAttribute('data-en-placeholder');
+                });
+                
+                currentLang = 'en';
+            } else {
+                // 切換到中文
+                zhElements.forEach(el => {
+                    el.style.display = 'inline';
+                    el.classList.remove('hidden');
+                });
+                enElements.forEach(el => {
+                    el.style.display = 'none';
+                    el.classList.add('hidden');
+                });
+                
+                // 更新表單佔位符
+                formInputs.forEach(input => {
+                    const originalPlaceholder = input.getAttribute('placeholder');
+                    if (input.getAttribute('data-en-placeholder')) {
+                        input.placeholder = originalPlaceholder.replace(input.getAttribute('data-en-placeholder'), '');
+                    }
+                });
+                
+                currentLang = 'zh';
+            }
+        });
+
+        // 導航欄滾動效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 0';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.padding = '1rem 0';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 表單提交處理
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 顯示提交中狀態
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="lang-zh">發送中...</span><span class="lang-en" style="display: none;">Sending...</span>';
+            submitBtn.disabled = true;
+            
+            // 模擬表單提交
+            setTimeout(() => {
+                alert(currentLang === 'zh' ? '表單已提交！我們會盡快與您聯繫。' : 'Form submitted! We will contact you soon.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                this.reset();
+            }, 2000);
+        });
+
+        // 鍵盤快捷鍵
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'l') {
+                e.preventDefault();
+                document.querySelector('.language-toggle').click();
+            }
+        });
+    </script>
+</body>
+</html>

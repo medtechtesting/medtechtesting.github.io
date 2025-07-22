@@ -598,7 +598,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -10033,10 +10033,6 @@ textarea.form-control-lg {
   .mx-xl-0 {
     margin-right: 0 !important;
     margin-left: 0 !important;
-  }
-  .mx-xl-1 {
-    margin-right: 0.25rem !important;
-    margin-left: 0.25rem !important;
   }
   .mx-xl-2 {
     margin-right: 0.5rem !important;

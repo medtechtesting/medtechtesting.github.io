@@ -493,6 +493,13 @@
         // 語言切換功能
         let currentLang = 'zh';
         
+        // 初始化 data-zh-placeholder
+        document.querySelectorAll('input[data-en-placeholder], textarea[data-en-placeholder]').forEach(input => {
+            if (!input.getAttribute('data-zh-placeholder')) {
+                input.setAttribute('data-zh-placeholder', input.placeholder);
+            }
+        });
+
         document.querySelector('.language-toggle').addEventListener('click', function() {
             const zhElements = document.querySelectorAll('.lang-zh');
             const enElements = document.querySelectorAll('.lang-en');
@@ -528,10 +535,7 @@
                 
                 // 更新表單佔位符
                 formInputs.forEach(input => {
-                    const originalPlaceholder = input.getAttribute('placeholder');
-                    if (input.getAttribute('data-en-placeholder')) {
-                        input.placeholder = originalPlaceholder.replace(input.getAttribute('data-en-placeholder'), '');
-                    }
+                    input.placeholder = input.getAttribute('data-zh-placeholder');
                 });
                 
                 currentLang = 'zh';
